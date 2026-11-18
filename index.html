@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Palette Lab</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Palette Lab</h1>
+    <p>Use K-means to find the dominant colors in an image and see how it looks with a smaller palette.</p>
+  </header>
+  <form id="controls">
+    <label>Image (optional)
+      <input id="photo" type="file" accept="image/png,image/jpeg" aria-describedby="limits">
+    </label>
+    <label>Colors <input id="colors" type="number" min="2" max="16" value="6" required></label>
+    <button type="submit">Extract palette</button>
+  </form>
+  <p id="limits">PNG or JPEG, up to 5 MiB and 6 megapixels. Leave the file blank to try the sample.</p>
+  <p role="status" id="status"></p>
+  <section id="result" aria-label="Extraction results" hidden>
+    <div class="previews">
+      <figure><img id="original" alt="Original image preview"><figcaption>Original preview</figcaption></figure>
+      <figure><img id="reduced" alt="Color-reduced image"><figcaption>Color-reduced preview</figcaption></figure>
+    </div>
+    <h2>Palette</h2>
+    <ul id="palette" class="palette"></ul>
+    <a id="download" download="palette-lab.png">Download reduced PNG</a>
+  </section>
+</main>
+</body>
+</html>
